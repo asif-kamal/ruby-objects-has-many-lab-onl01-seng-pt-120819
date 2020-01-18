@@ -1,5 +1,12 @@
-class authenticate_or_request_with_http_digest
+class Author
   
   attr_accessor :name
   
   def initialize(name)
+    @name = name
+    
+  def posts
+    Post.all.select {|post| post.author == self}
+  end
+  
+  def add_post(post)
